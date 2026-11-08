@@ -1,9 +1,10 @@
 # Art Style Skills
 
-11 Claude skills, one folder each. Each folder has a `SKILL.md` that tells Claude how to produce that style.
+12 Claude skills, one folder each. Each folder has a `SKILL.md` that tells Claude how to produce that style.
 
 | Folder | Style | Output |
 |---|---|---|
+| pixel-sprite-art | Retro 2D fighting-game sprites | Image prompt or sprite |
 | `voxel-art` | 3D made of little cubes | Image prompt |
 | `needle-felt` | Fuzzy handmade wool figures | Image prompt |
 | `ukiyo-e` | Japanese woodblock print | Image prompt |
