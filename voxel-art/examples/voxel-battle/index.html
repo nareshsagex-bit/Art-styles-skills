@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voxel Battle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #f3ece3; overflow: hidden; }
+  #stage { position: relative; width: 100vw; height: 100svh; cursor: grab; }
+  #stage:active { cursor: grabbing; }
+  #sound { position: fixed; right: 16px; bottom: 16px; z-index: 2; font: 16px "Lilita One", "Arial Black", sans-serif; color: #2a2f3d;
+    background: #fff; border: 0; border-radius: 22px; padding: 9px 16px; box-shadow: 0 4px 14px rgba(60,40,20,.16); cursor: pointer; }
+</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/GammaCorrectionShader.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script defer src="../../scripts/battle-audio.js"></script>
+<script defer src="../../scripts/voxel-gl.js"></script>
+<script defer src="battle.js"></script>
+</head>
+<body>
+  <div id="stage" role="img" aria-label="A voxel battle diorama: a young trainer and his yellow electric mouse face a caped champion and his orange fire dragon, trading quick attacks, fire, lightning and a mid-air clash. Drag to look around."></div>
+  <button id="sound" type="button">&#9835; tap for sound</button>
+  <script>
+    // Browsers need a tap before playing sound: the first tap anywhere starts it; the button mutes.
+    (() => {
+      const btn = document.getElementById('sound');
+      const label = () => { btn.innerHTML = window.BattleAudio && BattleAudio.started && BattleAudio.enabled ? '&#9835; sound on' : '&#9835; sound off'; };
+      const begin = () => { if (window.BattleAudio && !BattleAudio.started) { BattleAudio.start(); label(); } };
+      addEventListener('pointerdown', e => { if (e.target !== btn) begin(); });
+      addEventListener('keydown', begin);
+      btn.addEventListener('click', () => { if (!BattleAudio.started) BattleAudio.start(); else BattleAudio.setEnabled(!BattleAudio.enabled); label(); });
+    })();
+  </script>
+</body>
+</html>
