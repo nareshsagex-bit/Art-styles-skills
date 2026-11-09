@@ -14,6 +14,14 @@ Modes 1–3 are **drawn as text by Claude directly**, with no image model needed
 | Unicode block art | `█ ▀ ▄ ▌ ▐ ▘ ▝ ▖ ▗ ▛ ▜ ▙ ▟` | Chunky pixel sprite (Claude Code mascot style) | Mascots, logos, CLI splash screens |
 | Colour ASCII (code) | Ink ramp ` .,:;-=+*xo%#@`, tinted per cell | Dense dithered poster made of coloured text, animated | Web pages, animated art, "make this colourful ASCII" |
 
+## When the user gives a reference image (do this first)
+The skill gives the **style**; the reference decides the **content, layout, density and mood**. Before building anything, follow `references/reference-workflow.md`:
+1. **Intent:** work out what the user wants out (match closely or just inspired, still or animated or interactive, auto-play for recording, aspect ratio, sound).
+2. **Analyse:** write a reference brief: camera, composition, layers from back to front, an inventory with counts, palette, light, texture and motion ideas. Small repeated details (text, sparkles, particles) often make up most of the look, so count them.
+3. **Map:** decide how each item is built with this skill. Write custom code for anything the skill doesn't cover rather than leaving it out.
+4. **Build in layers, then verify:** compare a screenshot side by side with the reference, score every inventory item, fix the biggest differences, and repeat at least twice.
+5. **Deliver:** say what matches, what differs and why.
+
 ## Rules for modes 1–3 (text answers)
 1. **Always output inside a fenced code block**, because it needs a monospace font or the alignment breaks.
 2. **Keep it narrow:** at most 40 columns for small art and 80 for banners, so it fits terminals and phones.

@@ -55,3 +55,20 @@ Each felt part is one draw call. The example has about 11 characters × about 20
 
 ## Testing in a hidden browser
 `requestAnimationFrame` pauses in hidden tabs. The example exposes `window.feltStep(ms)` to render a frame by hand: pass increasing `ms` values above `performance.now()`.
+
+## Storybook-scene recipe (illustrations, not just characters)
+A dreamy illustration reads as "finished" because of layers around the felt objects. See `examples/paper-plane-dream/dream.js`.
+
+| Layer | How |
+|---|---|
+| Painted backdrop | A canvas texture as `scene.background`: a gradient, then thousands of short curved brush dabs in 5–6 related colours following a swirl flow (`angle = sin(x*.006)*1.6 + cos(y*.008)*1.3`), lines of faint handwriting across the whole frame, gold specks and little four-point sparkles |
+| Felt objects | Clouds as clusters of felt spheres (cool colours high up, warm cream ones low down as if lit from below), stars as bevelled `ExtrudeGeometry` stars, a crescent moon from a two-arc `Shape`, lanterns as small cylinders. Use `material.side = DoubleSide` for flat felt shapes |
+| Glow | Additive `Sprite`s with a radial-gradient texture behind anything that shines (moon, stars, lanterns, the hero). Two stacked glows (a wide soft one and a small bright one) give a convincing warm halo |
+| Text on objects | Handwriting drawn into a transparent canvas texture on a plane just in front of a cloud, or on the hero (same geometry, `polygonOffset`, slightly scaled up) |
+| Sparkles | `Points` with an additive four-point sparkle texture, in 2–3 groups whose opacity pulses out of step |
+| Glitter | 300+ tiny additive points drifting slowly upward, wrapping at the top |
+| Dotted trails | Points sampled along a `CatmullRomCurve3` (constellations), or a chain that follows a moving object (light strings under lanterns) |
+| Floating words | Text textures on planes that drift sideways and bob |
+| Motion | The hero bobs and banks; clouds drift past and wrap; stars scale-pulse; lanterns rise and restart; a shooting star every few seconds; a slow camera drift with a `ZOOM` factor for framing |
+
+Density guide: match the reference's counts. The paper-plane scene uses about 28 felt stars, 135 sparkles, 320 glitter points, 3 constellations, 4 lanterns with trails, 20 floating words, plus 900 painted specks and handwriting across the backdrop.

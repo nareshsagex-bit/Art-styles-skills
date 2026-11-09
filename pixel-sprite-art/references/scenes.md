@@ -149,3 +149,30 @@ Characters carry `x, y, z, vx, vy, vz, face, pose, hurt`. Physics applies gravit
 ## Verify
 
 Screenshot at least two moments: a quiet one and a peak effect. Check: text readable, no overlaps, nobody standing on an edge, consistent squash, crisp pixels when zoomed, no console errors.
+
+## Top-down ¾ scenes (rooms, gyms, dungeons)
+Built from a reference in `examples/rock-gym/gym.js`. Canvas 240×360 portrait (most top-down references are about this size, scaled up 3×).
+
+**Static background, drawn once** into an offscreen canvas:
+- `stone(x, y, w, h, base)`: a dark outline with cut corners, then the base colour, a lit top row (×1.28) and left column (×1.14), a dark bottom row (×0.72) and right column (×0.8), and an occasional pit pixel.
+- `stoneWall(x, y, w, h)`: clips to the area, then lays rows of stones 10–15 px wide and 10–11 px tall, offset every other row, with a 1 px jitter.
+- `terraceLip(x, y, w)`: the lit top edge of a ledge, made of short bright stone tops over a 1 px dark line, plus a fading shadow strip at the base of the wall below.
+- Floors: a base colour with ±10–18% speckles and a few 2 px pebbles (dark under, light on top).
+- Stairs: grey steps (light top row, dark bottom row) inside a dark frame, with red side rails (light left column, dark right column).
+- Props: `box()` gives an outline, a highlight row and a shade row. Bookshelves get coloured book spines with a 1 px highlight.
+- Lighting baked last: an additive warm radial pool over the action area, then a dark radial vignette (about 60% at the corners).
+
+**Each frame:** draw the background, then additive light beams (gradient quads from each window, a warm landing patch, and dust pixels drifting along the beam), then shadows, then sprites sorted back to front, then effects.
+
+**¾-view sprites from pixel maps:**
+```js
+const TRAINER = ['..KKKKKKKK..', '.KRRRRRRRRK.', /* … */ '...KKK.KKK...'];
+const PAL = { K: '#1b1310', R: '#d6382c', /* … */ };
+sprite(TRAINER, PAL, feetX, topY);   // rows are centred, so symmetric front and back views stay aligned
+```
+- Back view for the player character (we see the cap, hair and backpack); front view for the opponent (we see the face).
+- 12–14 px wide and 25–28 px tall, a 1 px outline letter, base plus shade per material.
+- Pointing pose: replace the arm rows with a longer row.
+- Idle: bob 1 px. Shadow: a dark ellipse at the feet.
+
+**Creatures:** a chain of faceted octagon segments (3-tone facets with an outline) along a curve that sways with time, and a head drawn as scaled rect blocks with an outline. A hit flash swaps the palette to white.

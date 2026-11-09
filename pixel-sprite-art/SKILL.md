@@ -14,6 +14,14 @@ Two deliverables. Pick from the request, and default to **code-drawn** when the 
 
 Never load character art from PNG files for a code-drawn request. Users notice, and it defeats the point.
 
+## When the user gives a reference image (do this first)
+The skill gives the **style**; the reference decides the **content, layout, density and mood**. Before building anything, follow `references/reference-workflow.md`:
+1. **Intent:** work out what the user wants out (match closely or just inspired, still or animated or interactive, auto-play for recording, aspect ratio, sound).
+2. **Analyse:** write a reference brief: camera, composition, layers from back to front, an inventory with counts, palette, light, texture and motion ideas. Small repeated details (text, sparkles, particles) often make up most of the look, so count them.
+3. **Map:** decide how each item is built with this skill. Write custom code for anything the skill doesn't cover rather than leaving it out.
+4. **Build in layers, then verify:** compare a screenshot side by side with the reference, score every inventory item, fix the biggest differences, and repeat at least twice.
+5. **Deliver:** say what matches, what differs and why.
+
 ## What makes it read as this style
 
 This is **16-bit chibi pixel art**: small sprites, big heads, flat shading, a dark outline.
@@ -32,7 +40,7 @@ This is **16-bit chibi pixel art**: small sprites, big heads, flat shading, a da
 4. **Animate** by passing time `t` (seconds) and switching `pose` per frame. `drawChar` returns the front hand position, which is where weapons and energy effects attach.
 5. **Verify visually.** Open the page, take a screenshot and zoom in on each character. Check: outline closed, no blurry edges, features readable, facing direction right, nothing floating above or below the shadow.
 
-`examples/demo.html` shows three original characters in eight poses plus a row of generated extras. Open it to see the target quality.
+`examples/demo.html` shows three original characters in eight poses plus a row of generated extras. Open it to see the target quality. `examples/rock-gym/` shows a full top-down room built from a reference image: stone walls, terraces, an office, light beams, ¾-view trainers and a rock creature in a looping battle.
 
 ## Workflow: a whole scene
 
@@ -48,6 +56,15 @@ Lessons that cost iterations last time:
 - **Flat-card look:** a tilted ground plane with upright sprites looks like people sliding off a picture. Add a constant-thickness earth slab under the edges, shade walls light-left to dark-right, add a subtle grid or ring pattern on the ground, and keep crowds away from edges.
 - **Crowds:** place extras on rings or edge lines with minimum spacing, exclusion zones (arena, trees) and a gap at the front. Generating a "full ring" packs in far too many.
 - **Camera angle:** ground ellipses and island shapes share one squash ratio (about 0.62 for a ¾ view). Shadows, rings and particle spreads must use the same ratio.
+
+## Workflow: a top-down room or location (¾ view)
+
+The sprite kit's characters are **side-view fighters**. For a top-down scene (a gym, a house, a dungeon, a town) where people are seen from above, from behind or from the front, they look flat and out of place. Use the approach in `examples/rock-gym/` instead, and read the "Top-down ¾ scenes" section of **`references/scenes.md`**:
+- **¾-view sprites as pixel maps:** small strings of palette letters (about 12–14 px wide, 25–28 px tall) with a dark outline letter. Draw back views and front views, centre each row, and swap a row or two for a pointing pose.
+- **Chunky outlined stones** for walls and terraces (a lit top and left edge, dark bottom and right edge, cut corners), not flat brick rows.
+- **A baked lighting pass:** a warm pool where the action is, dark edges and corners, soft shadow ellipses under everything, and light beams with dust.
+- **Faceted, outlined rocks and creatures** instead of plain circles.
+- **Props with outlines and one highlight row:** shelves, desks, rugs, plants.
 
 ## Originals vs. existing characters
 

@@ -16,6 +16,14 @@ Good voxel art is the **MagicaVoxel diorama look**, not the Minecraft look:
 | A neat diorama slab (square or round) on a plain pastel background | Grass/dirt/stone layered ground, floating craggy rock islands |
 | Gentle isometric or high 3/4 camera | Eye-level game camera |
 
+## When the user gives a reference image (do this first)
+The skill gives the **style**; the reference decides the **content, layout, density and mood**. Before building anything, follow `references/reference-workflow.md`:
+1. **Intent:** work out what the user wants out (match closely or just inspired, still or animated or interactive, auto-play for recording, aspect ratio, sound).
+2. **Analyse:** write a reference brief: camera, composition, layers from back to front, an inventory with counts, palette, light, texture and motion ideas. Small repeated details (text, sparkles, particles) often make up most of the look, so count them.
+3. **Map:** decide how each item is built with this skill. Write custom code for anything the skill doesn't cover rather than leaving it out.
+4. **Build in layers, then verify:** compare a screenshot side by side with the reference, score every inventory item, fix the biggest differences, and repeat at least twice.
+5. **Deliver:** say what matches, what differs and why.
+
 ## Pick a mode
 | The user wants | Mode |
 |---|---|
