@@ -59,6 +59,8 @@ Each palette has 9 steps from the least ink to the most ink. Pick step `round(in
 
 Use `coolScale` (about 0.72–0.8) to multiply ink in teal areas, so big green regions (grass, leaves) don't overpower the subject.
 
+**Matching a reference picture:** pass a custom `theme` object (same shape as `THEMES.light`) whose `warm`, `cool` and `gold` ramps use the reference's own colours. For example, the watercolour butterfly uses lavender to deep indigo for `warm`, and pale cyan shifting to blue-violet and indigo for `cool`, so that both hue families end in the same dark edge colour. Turn `specks` off for a clean paper look.
+
 ## 5. Drawing fast
 
 - Batch characters by colour (`Map<colour, [c, r, glyph, ...]>`), then set `fillStyle` once per colour and `fillText` each glyph. That's about 30 colours instead of 30,000 style changes.
