@@ -19,7 +19,7 @@ The skill gives the **style**; the reference decides the **content, layout, dens
 1. **Intent:** work out what the user wants out (match closely or just inspired, still or animated or interactive, auto-play for recording, aspect ratio, sound).
 2. **Analyse:** write a reference brief: camera, composition, layers from back to front, an inventory with counts, palette, light, texture and motion ideas. Small repeated details (text, sparkles, particles) often make up most of the look, so count them.
 3. **Map:** decide how each item is built with this skill. Write custom code for anything the skill doesn't cover rather than leaving it out.
-4. **Build in layers, then verify:** compare a screenshot side by side with the reference, score every inventory item, fix the biggest differences, and repeat at least twice.
+4. **Build in layers, then verify:** compare a screenshot side by side with the reference, score every inventory item, fix the biggest differences, and repeat at least twice. Use `references/style-checks.md` for this style's common misses, their fixes and a final checklist.
 5. **Deliver:** say what matches, what differs and why.
 
 ## Rules for modes 1–3 (text answers)

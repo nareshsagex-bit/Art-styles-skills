@@ -12,7 +12,7 @@
 | `ascii-art` | ASCII / Unicode block "terminal pixel art", plus animated colour ASCII | Text art drawn by Claude itself, a live colour-ASCII web renderer (with a butterfly example), or an image prompt |
 
 ## Building from a reference image
-Every skill includes `references/reference-workflow.md`. When you give Claude a reference image, it first works out what you want out of it (match closely or just inspired, still or animated, auto-play for recording). It then writes a short brief of the image (camera, layers, an inventory with counts, palette, light), builds the scene in layers, and checks a screenshot side by side against the reference before showing you the result. The style comes from the skill; the content and the level of detail come from your reference.
+Every skill includes `references/reference-workflow.md`. When you give Claude a reference image, it first works out what you want out of it (match closely or just inspired, still or animated, auto-play for recording). It then writes a short brief of the image (camera, layers, an inventory with counts, palette, light), builds the scene in layers, and checks a screenshot side by side against the reference before showing you the result. The style comes from the skill; the content and the level of detail come from your reference. Each skill also has `references/style-checks.md`: the mistakes that came up for that style in real use, how to fix them, and a final checklist.
 
 ## How to install
 Copy the folders you want into one of these:
