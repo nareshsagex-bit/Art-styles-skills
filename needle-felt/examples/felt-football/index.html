@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Needle Felt Playground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #e5877d; overflow: hidden; }
+  #stage { width: 100vw; height: 100svh; cursor: grab; }
+  #stage:active { cursor: grabbing; }
+  #sound { position: fixed; right: 16px; bottom: 16px; font: 600 16px Fredoka, sans-serif; color: #7a2e28;
+    background: #fff4ef; border: 0; border-radius: 22px; padding: 9px 16px; box-shadow: 0 4px 14px rgba(90,20,20,.2); cursor: pointer; }
+</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="../../scripts/felt-audio.js"></script>
+<script defer src="../../scripts/felt-gl.js"></script>
+<script defer src="felt.js"></script>
+</head>
+<body>
+  <div id="stage" role="img" aria-label="Five fuzzy needle-felted little yellow guys in blue overalls playing on pink wool: two kick a red ball back and forth, one runs with a banana while another chases him, and one dances; every few seconds they all cheer. Drag to look around."></div>
+  <button id="sound" type="button">&#9835; tap for sound</button>
+  <script>
+    (() => {
+      const btn = document.getElementById('sound');
+      const label = () => { btn.innerHTML = window.FeltAudio && FeltAudio.started && FeltAudio.enabled ? '&#9835; sound on' : '&#9835; sound off'; };
+      const begin = () => { if (window.FeltAudio && !FeltAudio.started) { FeltAudio.start(); label(); } };
+      addEventListener('pointerdown', e => { if (e.target !== btn) begin(); });
+      addEventListener('keydown', begin);
+      btn.addEventListener('click', () => { if (!FeltAudio.started) FeltAudio.start(); else FeltAudio.setEnabled(!FeltAudio.enabled); label(); });
+    })();
+  </script>
+</body>
+</html>
