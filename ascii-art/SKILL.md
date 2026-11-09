@@ -91,9 +91,7 @@ Use this for the dense, colourful, dithered ASCII look: every cell filled with a
 4. **Text on top:** `ascii.textBox(x, y, 'Hello!', { shout, placed })` draws a speech box made of characters, and `ascii.bigText(x, y, 'BOOM!')` draws a title. Share one `placed` array per frame so boxes never overlap.
 5. **Check a screenshot.** The subject should be the most saturated, densest thing on screen. If it washes out, raise its saturation or darken its outline in the source drawing rather than tuning the renderer.
 
-Two complete animated examples:
-- `examples/butterfly/index.html`: a magenta-and-orange butterfly over swaying flowers, using the built-in light theme.
-- `examples/watercolor-butterfly/index.html`: a single watercolour-style butterfly (dark indigo edges, pale cyan and lavender wings, veins) recreated from a reference image, with a **custom theme** whose palettes match that reference. Copy this one when the user says "make it like this picture".
+`examples/watercolor-butterfly/index.html` is a complete animated example: a single watercolour-style butterfly (dark indigo edges, pale cyan and lavender wings, veins) recreated from a reference image, with a **custom theme** whose palettes match that reference. Copy it when the user says "make it like this picture".
 
 ## Image-prompt variant (ASCII look as a picture)
 When the user wants an image that *looks like* ASCII art (for a poster or social post):
