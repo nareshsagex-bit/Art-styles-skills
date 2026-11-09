@@ -1,6 +1,6 @@
 # Art Style Skills
 
-7 Claude skills, one folder each. Each folder has a `SKILL.md` that tells Claude how to produce that style.
+6 Claude skills, one folder each. Each folder has a `SKILL.md` that tells Claude how to produce that style.
 
 | Folder | Style | Output |
 |---|---|---|
@@ -8,7 +8,6 @@
 | `voxel-art` | MagicaVoxel-style 3D made of little cubes | Built live by code (Three.js voxel engine with soft shadows, bloom and sound, plus an animated battle diorama example), or an image prompt |
 | `needle-felt` | Fuzzy handmade wool figures | Built live by code (Three.js shell-fur felt engine with voices and quote bubbles, plus an animated felt football stadium example), or an image prompt |
 | `ukiyo-e` | Japanese woodblock print | Built live by code (an explorable 3D woodblock sea with tall ships, toon shaders, koto music and an auto camera film for recording), or an image prompt |
-| `watercolor-storybook` | Soft children's-book painting | Image prompt |
 | `crayon-kid-drawing` | Wobbly child's crayon drawing | Drawn live by code (HTML canvas engine, with a running-friends picture and an animated picture story with music), or an image prompt |
 | `ascii-art` | ASCII / Unicode block "terminal pixel art", plus animated colour ASCII | Text art drawn by Claude itself, a live colour-ASCII web renderer (with a butterfly example), or an image prompt |
 
