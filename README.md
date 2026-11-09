@@ -14,7 +14,7 @@
 | `blueprint` | White technical linework on blue grid | Image prompt |
 | `embroidery` | Stitched thread on fabric, in a hoop | Image prompt |
 | `neon-synthwave` | Glowing 80s neon, grid and sunset | Image prompt |
-| `crayon-kid-drawing` | Wobbly child's crayon drawing | Image prompt |
+| `crayon-kid-drawing` | Wobbly child's crayon drawing | Drawn live by code (HTML canvas engine, with a running-friends picture and an animated picture story with music), or an image prompt |
 | `ascii-art` | ASCII / Unicode block "terminal pixel art", plus animated colour ASCII | Text art drawn by Claude itself, a live colour-ASCII web renderer (with a butterfly example), or an image prompt |
 
 ## How to install
@@ -22,7 +22,7 @@ Copy the folders you want into one of these:
 - **One project only:** `<your-project>/.claude/skills/`
 - **All your projects:** `C:\Users\<you>\.claude\skills\`
 
-Each skill must stay in its own folder with the file named exactly `SKILL.md`. Copy the whole folder, including any `scripts/`, `references/` and `examples/` subfolders (`pixel-sprite-art` uses them). Claude picks a skill automatically when your request matches its description. You can also ask for one by name, e.g. "use the ukiyo-e skill".
+Each skill must stay in its own folder with the file named exactly `SKILL.md`. Copy the whole folder, including any `scripts/`, `references/` and `examples/` subfolders (`pixel-sprite-art`, `ascii-art` and `crayon-kid-drawing` use them). Claude picks a skill automatically when your request matches its description. You can also ask for one by name, e.g. "use the ukiyo-e skill".
 
 ## Same character, every style
 Every image skill uses the same example character, so a set of images looks like a series:
