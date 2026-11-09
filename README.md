@@ -1,6 +1,6 @@
 # Art Style Skills
 
-12 Claude skills, one folder each. Each folder has a `SKILL.md` that tells Claude how to produce that style.
+11 Claude skills, one folder each. Each folder has a `SKILL.md` that tells Claude how to produce that style.
 
 | Folder | Style | Output |
 |---|---|---|
@@ -11,7 +11,6 @@
 | `stained-glass` | Glowing glass split by lead lines | Image prompt |
 | `vinyl-toy` | Glossy collectible chibi figure | Image prompt |
 | `watercolor-storybook` | Soft children's-book painting | Image prompt |
-| `blueprint` | White technical linework on blue grid | Image prompt |
 | `embroidery` | Stitched thread on fabric, in a hoop | Image prompt |
 | `neon-synthwave` | Glowing 80s neon, grid and sunset | Image prompt |
 | `crayon-kid-drawing` | Wobbly child's crayon drawing | Drawn live by code (HTML canvas engine, with a running-friends picture and an animated picture story with music), or an image prompt |
