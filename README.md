@@ -2,6 +2,28 @@
 
 6 Claude skills, one folder each. Each folder has a `SKILL.md` that tells Claude how to produce that style.
 
+## See them in action
+Every clip below was drawn entirely by code using these skills, with no images and no image models. Click a preview to watch the full video.
+
+<table>
+<tr>
+<td align="center" width="50%"><a href="media/pixel-sprite-art.mp4"><img src="media/pixel-sprite-art.gif" width="100%" alt="Pixel sprite art demo"></a><br><b>Pixel sprite art</b><br><sub>Naruto vs Sasuke on a floating arena · <a href="media/pixel-sprite-art.mp4">▶ full video</a></sub></td>
+<td align="center" width="50%"><a href="media/voxel-art.mp4"><img src="media/voxel-art.gif" width="100%" alt="Voxel art demo"></a><br><b>Voxel art</b><br><sub>A MagicaVoxel-style Pokémon battle · <a href="media/voxel-art.mp4">▶ full video</a></sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><a href="media/needle-felt.mp4"><img src="media/needle-felt.gif" width="100%" alt="Needle felt demo"></a><br><b>Needle felt</b><br><sub>Felt minions playing football · <a href="media/needle-felt.mp4">▶ full video</a></sub></td>
+<td align="center" width="50%"><a href="media/needle-felt-dream.mp4"><img src="media/needle-felt-dream.gif" width="100%" alt="Needle felt (storybook) demo"></a><br><b>Needle felt (storybook)</b><br><sub>A paper-plane dream with lo-fi music · <a href="media/needle-felt-dream.mp4">▶ full video</a></sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><a href="media/ukiyo-e.mp4"><img src="media/ukiyo-e.gif" width="100%" alt="Ukiyo-e demo"></a><br><b>Ukiyo-e</b><br><sub>Tall ships sailing for Mt Fuji in 3D · <a href="media/ukiyo-e.mp4">▶ full video</a></sub></td>
+<td align="center" width="50%"><a href="media/crayon-kid-drawing.mp4"><img src="media/crayon-kid-drawing.gif" width="100%" alt="Crayon kid drawing demo"></a><br><b>Crayon kid drawing</b><br><sub>A picture story that draws itself · <a href="media/crayon-kid-drawing.mp4">▶ full video</a></sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><a href="media/ascii-art.mp4"><img src="media/ascii-art.gif" width="100%" alt="ASCII art demo"></a><br><b>ASCII art</b><br><sub>A watercolour butterfly made of text · <a href="media/ascii-art.mp4">▶ full video</a></sub></td>
+<td></td>
+</tr>
+</table>
+
 | Folder | Style | Output |
 |---|---|---|
 | `pixel-sprite-art` | 16-bit chibi pixel characters and fight scenes | Sprites and scenes drawn by code (HTML/JS, a sprite engine and demo, plus a top-down rock-gym scene), or an image prompt |
