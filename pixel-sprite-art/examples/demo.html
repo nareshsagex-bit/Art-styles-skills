@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel Sprite Kit Demo</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #ffffff; }
+  canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+</style>
+<script defer src="../scripts/sprite-kit.js"></script>
+<script defer src="characters.js"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Native resolution: everything is drawn here, then scaled up by a whole number.
+    const W = 320, H = 180;
+    const screen = document.querySelector('canvas');
+    const out = screen.getContext('2d');
+    const view = document.createElement('canvas');
+    view.width = W; view.height = H;
+    const ctx = view.getContext('2d');
+    const kit = PixelSprite.create();
+    const { KAZE, RIN, TOMO } = EXAMPLE_CHARACTERS;
+    const poses = ['idle', 'run', 'punch', 'kick', 'jump', 'charge', 'hurt', 'wave'];
+
+    function frame(ms) {
+      const t = ms / 1000;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, W, H);
+      // One row per hero, one column per pose.
+      [KAZE, RIN, TOMO].forEach((c, row) => {
+        poses.forEach((pose, col) => {
+          const x = 30 + col * 37, y = 48 + row * 46;
+          ctx.fillStyle = '#00000022';
+          ctx.fillRect(x - 6, y, 12, 2);
+          kit.drawChar(ctx, c, pose, t + col * .3, x, y, 1, { talk: pose === 'charge' });
+        });
+      });
+      // Background extras generated from an index.
+      for (let i = 0; i < 9; i++) kit.drawChar(ctx, PixelSprite.extra(i), Math.sin(t * 2 + i) > 0 ? 'cheer' : 'watch', t + i, 22 + i * 35, 176, i < 4 ? 1 : -1);
+
+      const s = Math.max(1, Math.floor(Math.min(screen.width / W, screen.height / H)));
+      out.imageSmoothingEnabled = false;
+      out.fillStyle = '#ffffff';
+      out.fillRect(0, 0, screen.width, screen.height);
+      out.drawImage(view, (screen.width - W * s) >> 1, (screen.height - H * s) >> 1, W * s, H * s);
+      requestAnimationFrame(frame);
+    }
+    function resize() {
+      screen.width = Math.round(screen.clientWidth * devicePixelRatio);
+      screen.height = Math.round(screen.clientHeight * devicePixelRatio);
+    }
+    addEventListener('resize', resize);
+    resize();
+    requestAnimationFrame(frame);
+  });
+</script>
+</head>
+<body>
+<canvas aria-label="Three code-drawn pixel characters in eight poses, with a row of background extras"></canvas>
+</body>
+</html>
