@@ -15,7 +15,7 @@
 | `embroidery` | Stitched thread on fabric, in a hoop | Image prompt |
 | `neon-synthwave` | Glowing 80s neon, grid and sunset | Image prompt |
 | `crayon-kid-drawing` | Wobbly child's crayon drawing | Image prompt |
-| `ascii-art` | ASCII / Unicode block "terminal pixel art" | Text art drawn by Claude itself (plus an image-prompt variant) |
+| `ascii-art` | ASCII / Unicode block "terminal pixel art", plus animated colour ASCII | Text art drawn by Claude itself, a live colour-ASCII web renderer (with a butterfly example), or an image prompt |
 
 ## How to install
 Copy the folders you want into one of these:
