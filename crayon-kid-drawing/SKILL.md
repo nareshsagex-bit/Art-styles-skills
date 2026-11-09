@@ -5,8 +5,6 @@ description: Make a subject look like a child's crayon drawing (wobbly lines, wa
 
 # Crayon / Kid Drawing
 
-**Video example:** [`examples/crayon-kid-drawing-demo.mp4`](examples/crayon-kid-drawing-demo.mp4), a screen recording of the code example running.
-
 ## What it looks like
 - Wobbly, uneven lines with little gaps where the wax skipped the paper
 - Scribbly back-and-forth colour fills that go outside the lines

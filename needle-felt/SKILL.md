@@ -5,8 +5,6 @@ description: Make characters, animals and scenes look like needle-felted wool fi
 
 # Needle-Felted Wool
 
-**Video example:** [`examples/needle-felt-demo.mp4`](examples/needle-felt-demo.mp4), a screen recording of the code example running.
-
 ## What it looks like
 - Figures made of compressed wool fibres: soft, fuzzy, slightly lumpy, rounded shapes
 - Stray fibres at the edges, a matte surface, no hard lines or outlines

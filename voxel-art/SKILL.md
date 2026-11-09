@@ -5,8 +5,6 @@ description: Make subjects, characters and scenes as voxel art (3D built from sm
 
 # Voxel Art
 
-**Video example:** [`examples/voxel-art-demo.mp4`](examples/voxel-art-demo.mp4), a screen recording of the code example running.
-
 ## What it looks like (and what it is not)
 Good voxel art is the **MagicaVoxel diorama look**, not the Minecraft look:
 

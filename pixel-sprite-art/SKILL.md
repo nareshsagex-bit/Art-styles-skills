@@ -5,8 +5,6 @@ description: Create retro 16-bit chibi pixel-art characters and scenes drawn ent
 
 # Pixel Sprite Art
 
-**Video example:** [`examples/pixel-sprite-art-demo.mp4`](examples/pixel-sprite-art-demo.mp4), a screen recording of the code example running.
-
 Two deliverables. Pick from the request, and default to **code-drawn** when the user is in a codebase, says "generate it from code", or wants something animated.
 
 | Deliverable | When | Output |
