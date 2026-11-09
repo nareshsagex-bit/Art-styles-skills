@@ -4,7 +4,7 @@
 (() => {
   'use strict';
   const canvas = document.querySelector('canvas');
-  const kit = CrayonKit.create(canvas, { W: 1180, H: 620, size: .92, paper: false });
+  const kit = CrayonKit.create(canvas, { W: 1180, H: 620, size: .4, paper: false });
   const { K, W, H, ell, line, fill, shape } = kit;
 
   // ---------- Cast ----------
