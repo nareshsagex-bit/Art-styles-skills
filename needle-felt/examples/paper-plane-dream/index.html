@@ -9,12 +9,29 @@
 <style>
   html, body { margin: 0; height: 100%; background: #16284d; overflow: hidden; }
   #stage { width: 100vw; height: 100svh; }
+  #sound { position: fixed; right: 18px; bottom: 16px; font: 500 20px "Caveat", cursive; color: #f6e2a8;
+    background: rgba(14,26,52,.55); border: 1px solid rgba(246,226,168,.45); border-radius: 18px; padding: 4px 14px; cursor: pointer; }
+  body.clean #sound { display: none; }
 </style>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script defer src="../../scripts/felt-gl.js"></script>
+<script defer src="../../scripts/lofi-audio.js"></script>
 <script defer src="dream.js"></script>
 </head>
 <body>
-  <div id="stage" role="img" aria-label="A needle-felted night sky: a child rides a glowing paper airplane covered in handwriting past fuzzy clouds, a crescent moon, twinkling stars and floating paper lanterns."></div>
+  <div id="stage" role="img" aria-label="A needle-felted night sky: a child rides a glowing paper airplane covered in handwriting past fuzzy clouds, a crescent moon, twinkling stars and floating paper lanterns, with lo-fi music."></div>
+  <button id="sound" type="button">&#9835; tap for lo-fi</button>
+  <script>
+    // Browsers only allow sound after a tap: the first click or key anywhere starts the music.
+    // The button mutes; H hides it for a clean recording.
+    (() => {
+      const btn = document.getElementById('sound');
+      const label = () => { btn.innerHTML = window.LofiAudio && LofiAudio.started && LofiAudio.enabled ? '&#9835; lo-fi on' : '&#9835; lo-fi off'; };
+      const begin = () => { if (window.LofiAudio && !LofiAudio.started) { LofiAudio.start(); label(); } };
+      addEventListener('pointerdown', e => { if (e.target !== btn) begin(); });
+      addEventListener('keydown', e => { if (e.key === 'h' || e.key === 'H') document.body.classList.toggle('clean'); else begin(); });
+      btn.addEventListener('click', () => { if (!LofiAudio.started) LofiAudio.start(); else LofiAudio.setEnabled(!LofiAudio.enabled); label(); });
+    })();
+  </script>
 </body>
 </html>
