@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ukiyo-e Sea 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #e9dcc0; overflow: hidden; }
+  #stage { position: fixed; inset: 0; cursor: grab; }
+  #stage:active { cursor: grabbing; }
+  /* Washi paper and woodgrain multiplied over the 3D view, plus a printed border. */
+  #paper { position: fixed; inset: 0; pointer-events: none; mix-blend-mode: multiply; opacity: .95; background-size: 512px 512px; }
+  #vignette { position: fixed; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(120,90,50,0) 55%, rgba(120,90,50,.28) 100%); }
+  #frame { position: fixed; inset: 14px; pointer-events: none; border: 3px solid rgba(23,35,61,.85); }
+  #title { position: fixed; top: 34px; right: 40px; pointer-events: none; background: #f4ead2; border: 2.4px solid #17233d; padding: 10px 14px;
+    font: 700 32px/1.35 "Noto Serif JP", serif; color: #17233d; writing-mode: vertical-rl; box-shadow: inset 0 0 0 4px #f4ead2, inset 0 0 0 5px #17233d; }
+  #seal { position: fixed; top: 248px; right: 92px; width: 30px; height: 30px; background: #b5352b; color: #f4ead2; font: 700 19px/30px "Noto Serif JP", serif; text-align: center; pointer-events: none; }
+  #hint { position: fixed; left: 34px; top: 30px; pointer-events: none; font: 500 15px "Shippori Mincho", serif; color: #17233d; background: rgba(244,234,210,.85); padding: 6px 12px; border: 1px solid rgba(23,35,61,.5); }
+  .arrow { position: fixed; top: 50%; transform: translateY(-50%); width: 58px; height: 58px; border-radius: 50%; border: 2px solid #17233d;
+    background: rgba(244,234,210,.92); color: #17233d; font: 400 34px/1 "Shippori Mincho", serif; cursor: pointer; display: grid; place-items: center;
+    box-shadow: 0 4px 14px rgba(23,35,61,.18); transition: transform .15s, background .15s; z-index: 2; }
+  .arrow:hover { background: #fff6e4; transform: translateY(-50%) scale(1.08); }
+  #prev { left: 34px; } #next { right: 34px; }
+  #viewBar { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); text-align: center; pointer-events: none; }
+  #viewName { font: 600 19px "Shippori Mincho", serif; color: #17233d; background: rgba(244,234,210,.92); border: 1.5px solid #17233d; padding: 7px 16px; white-space: nowrap; }
+  #viewDots { margin-top: 9px; display: flex; gap: 8px; justify-content: center; }
+  #viewDots i { width: 10px; height: 10px; background: rgba(23,35,61,.3); display: block; }
+  #viewDots i.on { background: #b5352b; }
+  /* Clean mode for recording: press H (or open with ?clean) to hide the controls. */
+  body.clean #hint, body.clean .arrow, body.clean #viewBar, body.clean #sound { display: none; }
+  #sound { position: fixed; right: 34px; bottom: 30px; font: 500 15px "Shippori Mincho", serif; color: #17233d; background: #f4ead2; border: 1.5px solid #17233d; border-radius: 3px; padding: 7px 13px; cursor: pointer; }
+</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="../../scripts/ukiyo-audio.js"></script>
+<script defer src="sea.js"></script>
+</head>
+<body>
+  <div id="stage" role="img" aria-label="An explorable 3D ukiyo-e sea in woodblock style: a towering curling wave with clawed foam and spray, rowing boats riding the swell, a snow-capped mountain on the horizon and a graded dusk sky. Drag to look around, scroll to zoom."></div>
+  <div id="paper"></div>
+  <div id="vignette"></div>
+  <div id="frame"></div>
+  <div id="title">夕波富士</div>
+  <div id="seal">印</div>
+  <div id="hint">drag to look around · scroll to zoom · ← → change view · H hides controls · R replays the film</div>
+  <button class="arrow" id="prev" type="button" aria-label="Previous view">&#8249;</button>
+  <button class="arrow" id="next" type="button" aria-label="Next view">&#8250;</button>
+  <div id="viewBar"><div id="viewName"></div><div id="viewDots"></div></div>
+  <button id="sound" type="button">&#9835; tap for sound</button>
+  <script>
+    (() => {
+      const btn = document.getElementById('sound');
+      const label = () => { btn.innerHTML = window.UkiyoAudio && UkiyoAudio.started && UkiyoAudio.enabled ? '&#9835; sound on' : '&#9835; sound off'; };
+      const begin = () => { if (window.UkiyoAudio && !UkiyoAudio.started) { UkiyoAudio.start(); UkiyoAudio.ambience('waves'); label(); } };
+      addEventListener('pointerdown', e => { if (e.target !== btn) begin(); });
+      addEventListener('keydown', begin);
+      if (/clean/.test(location.search)) document.body.classList.add('clean');
+      addEventListener('keydown', e => { if (e.key === 'h' || e.key === 'H') document.body.classList.toggle('clean'); });
+      btn.addEventListener('click', () => { if (!UkiyoAudio.started) begin(); else UkiyoAudio.setEnabled(!UkiyoAudio.enabled); label(); });
+    })();
+  </script>
+</body>
+</html>
