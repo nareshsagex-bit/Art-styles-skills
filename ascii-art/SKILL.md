@@ -5,6 +5,8 @@ description: Draw characters, scenes, logos and text banners directly as ASCII a
 
 # ASCII Art & Terminal Block Art
 
+**Video example:** [`examples/ascii-art-demo.mp4`](examples/ascii-art-demo.mp4), a screen recording of the code example running.
+
 Modes 1–3 are **drawn as text by Claude directly**, with no image model needed. Mode 4 is **code**: a web page that renders a live scene as colour ASCII. Pick the mode the user wants. Default to **Classic ASCII** for text answers, and to **Colour ASCII** when they want something colourful, animated, or "like this reference" for a dense, tinted ASCII image.
 
 | Mode | Characters | Looks like | Best for |

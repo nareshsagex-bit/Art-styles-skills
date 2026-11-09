@@ -5,6 +5,8 @@ description: Make subjects and scenes look like Japanese ukiyo-e woodblock print
 
 # Ukiyo-e Woodblock Print
 
+**Video example:** [`examples/ukiyo-e-demo.mp4`](examples/ukiyo-e-demo.mp4), a screen recording of the code example running.
+
 ## What it looks like
 - Flat areas of colour with no soft shading (the only gradients are bokashi skies)
 - Bold, confident dark ink outlines (the "key block")
